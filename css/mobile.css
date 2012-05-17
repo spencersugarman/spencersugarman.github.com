@@ -1,0 +1,60 @@
+/**************
+* MOBILE CSS
+***************/
+	
+@media only screen and (max-width: 959px) {
+	body {
+		width: 640px;
+		}
+	.pieces:after {
+		clear: none;
+		}
+	.piece:nth-child(even):after {
+		content: ".";
+		display: block;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+		clear: both;
+		}
+	.desc {
+		width: auto;
+		}
+	}
+@media only screen and (max-width: 639px) {
+	body {
+		width: 480px;
+		padding: 0 10px;
+		}
+	#portfolio {
+		padding: 0 10px;
+		}
+	.piece, .thumbnail {
+		width: 460px;
+		height: 258px;
+		}
+	.piece h3 {
+		width: 340px;
+		font-size: 24px;
+		}
+	.pieces:after {
+		clear: none;
+		}
+	.piece:after {
+		content: ".";
+		display: block;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+		clear: both;
+		}
+	.info {
+		font-size: 16px;
+		}
+	.desc {
+		width: auto;
+		}
+	.media {
+		display: none;
+		}
+	}
