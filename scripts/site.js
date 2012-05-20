@@ -62,6 +62,7 @@ function closeProject(){
 		height: '1px'
 	}, 300, 'swing', function(){
 		$(this).remove();
+		window.location.hash = '';
 	});
 }
 var projectDescriptions = [ 
