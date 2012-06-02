@@ -1,0 +1,162 @@
+@media only screen and (max-width: 1005px) {
+	
+	img {
+		max-width: 640px;
+	}
+		
+	.container {
+		width: 640px;
+	}
+	
+	#header ul li {
+		margin: 0 0 0 20px;
+	}
+
+	#intro {
+		padding-top: 45px;
+	}
+	
+	#intro h1 {
+		font-size: 40px;
+	}
+	
+	#intro h2 {
+		font-size: 22px;
+		margin-bottom: 40px;
+	}
+	
+	.project_head {
+		height: 300px;
+	}
+	
+	.block-list li {
+		padding-bottom: 20px;
+	}
+	
+	.block-list li:nth-child(3) {
+		clear: left;
+	}
+
+	.videos {
+		display: none;
+	}
+	
+	.videoLink {
+		display: block;
+	}
+	
+	.pieces:after {
+		clear: none;
+	}
+	
+	.piece:nth-child(even),
+	.piece:nth-child(odd) {
+		margin: 0;
+		width: 320px;
+		height: 170px;
+	}
+	
+	.piece img {
+		width: inherit;
+	}
+		
+	#projects .container:after, 
+	.piece:nth-child(even):after,
+	.category:after {
+		content: ".";
+		display: block;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+		clear: both;
+	}
+	
+	.category {
+		clear: both;
+		padding-top: 30px;
+		margin-top: 0;
+	}
+	
+}
+
+@media only screen and (max-width: 685px) {
+	#topbar, #intro, #content, #projects, #footer {
+		width: 100%;
+		min-width: 480px;
+	}
+	
+	img {
+		max-width: 440px;
+	}
+
+	.container {
+		display: box;
+		width: 440px;
+		padding: 20px;
+	}
+
+	#logo {
+		display: block;
+		width: 440px;
+		padding: 0 20px;
+		margin: 0 auto -95px auto;
+	}
+
+	.ribbon-bottom {
+		border-color: #FFF transparent transparent transparent;
+		border-style: solid;
+		border-width: 50px;
+		height: 0;
+		width: 0;
+		position: absolute;
+		bottom: -95px;
+		left: 19px;
+	}
+	
+	#header {
+		padding-right: 20px;
+	}
+	
+	#header h1 {
+		display: none;
+	}
+	
+	#header .navigation {
+		margin-top: -15px;
+		font-size: 20px;
+	}
+
+	#header ul li {
+		margin: 0 0 0 40px;
+	}
+
+	#intro {
+		padding-top: 30px;
+	}
+	
+	#intro h2 {
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+	
+	.art {
+		width: 210px;
+	}
+
+	.piece:nth-child(even),
+	.piece:nth-child(odd) {
+		margin: 0;
+		width: 440px;
+		height: 248px;
+	}
+	
+	.piece img {
+		width: inherit;
+		max-height: inherit;
+	}
+
+	#footer .container {
+		margin-top: 0;
+		font-size: 22px;
+	}
+}
