@@ -99,7 +99,7 @@
 		display: block;
 		width: 440px;
 		padding: 0 20px;
-		margin: 0 auto -95px auto;
+		z-index: 1;
 	}
 
 	.ribbon-bottom {
@@ -114,7 +114,9 @@
 	}
 	
 	#header {
+		position: relative;
 		padding-right: 20px;
+		z-index: 2;
 	}
 	
 	#header h1 {

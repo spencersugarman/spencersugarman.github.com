@@ -70,11 +70,17 @@ img {
  * TOP BAR
  ********************************/
 
-#header {
+#topbar {
 	background: #333 url('../assets/black_texture.png');
+	-webkit-box-shadow: 0px 3px 12px #333;
+	   -moz-box-shadow: 0px 3px 12px #333;
+	     -o-box-shadow: 0px 3px 12px #333;
+		    box-shadow: 0px 3px 12px #333;
+}
+ 
+ #header {
 	color: #EDEDED;
 	padding: 15px 0;
-	box-shadow: 0px 3px 12px #333;
 	min-height: 40px;
 }
 
@@ -115,7 +121,6 @@ img {
 	position: relative;
 	margin: 0 auto -95px auto;
 	width: 100px;
-	z-index: 1000;
 }
 
 #logo img {
@@ -260,7 +265,10 @@ ul.additional {
 	background: #333 url('../assets/black_texture.png'); 
 	height: 100%; 
 	padding: 20px 0; 
-	box-shadow: 0px 0px 12px #333;
+	-webkit-box-shadow: 0px 0px 12px #333;
+	   -moz-box-shadow: 0px 0px 12px #333;
+	     -o-box-shadow: 0px 0px 12px #333;
+		    box-shadow: 0px 0px 12px #333;
 }			
 
 #projects h3 { 
