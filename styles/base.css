@@ -70,17 +70,11 @@ img {
  * TOP BAR
  ********************************/
 
-#topbar {
+#header {
 	background: #333 url('../assets/black_texture.png');
-	-webkit-box-shadow: 0px 3px 12px #333;
-	   -moz-box-shadow: 0px 3px 12px #333;
-	     -o-box-shadow: 0px 3px 12px #333;
-		    box-shadow: 0px 3px 12px #333;
-}
- 
- #header {
 	color: #EDEDED;
-	padding: 15px 0;
+	padding: 20px 0 15px 0;
+	box-shadow: 0px 3px 12px #333;
 	min-height: 40px;
 }
 
@@ -121,12 +115,13 @@ img {
 	position: relative;
 	margin: 0 auto -95px auto;
 	width: 100px;
+	background: #FFF;
+	z-index: 10;
 }
 
 #logo img {
 	height: 50px;
-	padding: 25px 31px 15px 31px;
-	background: #FFF;
+	padding: 25px 31px 10px 31px;
 }
 
 .ribbon-bottom {
@@ -136,8 +131,8 @@ img {
 	height: 0;
 	width: 0;
 	position: absolute;
-	bottom: -95px;
-	left: -1px;
+	bottom: -100px;
+	left: 0px;
 }
 
 /********************************
@@ -265,10 +260,7 @@ ul.additional {
 	background: #333 url('../assets/black_texture.png'); 
 	height: 100%; 
 	padding: 20px 0; 
-	-webkit-box-shadow: 0px 0px 12px #333;
-	   -moz-box-shadow: 0px 0px 12px #333;
-	     -o-box-shadow: 0px 0px 12px #333;
-		    box-shadow: 0px 0px 12px #333;
+	box-shadow: 0px 0px 12px #333;
 }			
 
 #projects h3 { 
@@ -297,7 +289,7 @@ ul.additional {
 	float: left;
 	position: relative;
 	width: 300px;
-	height: 170px;
+	height: 180px;
 	overflow: hidden;
 	opacity: 0.6;
 	-webkit-transition: opacity 0.2s ease-in;
@@ -305,7 +297,7 @@ ul.additional {
 	     -o-transition: opacity 0.2s ease-in;
 	        transition: opacity 0.2s ease-in;
 	cursor: pointer;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 
 .piece:hover {
@@ -341,7 +333,6 @@ ul.additional {
 	width: 300px;
 	max-height: 170px;
 	background: #999;
-	overflow: hidden;
 }
 
 
