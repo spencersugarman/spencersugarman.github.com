@@ -285,7 +285,7 @@ ul.additional {
 	float: left;
 	position: relative;
 	width: 300px;
-	height: 180px;
+	height: 170px;
 	overflow: hidden;
 	opacity: 0.6;
 	-webkit-transition: opacity 0.2s ease-in;
@@ -306,7 +306,7 @@ ul.additional {
 
 .piece h3 {
 	position: absolute;
-	bottom: 25px;
+	bottom: 15px;
 	width: 250px;
 	margin: 0;
 	padding: 10px;
