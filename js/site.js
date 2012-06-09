@@ -10,12 +10,6 @@ var Sugarman = function () {
 			root.load(project);
 		});
 	
-		// if example.com/#projectName then show the project
-		if (window.location.hash.substring(1) !== '') {
-			var project = window.location.hash.substring(1);
-			root.show(project);
-		}
-
 		// event listener for animating the logo
 		$("#s").hover(
 			function(){
@@ -28,17 +22,9 @@ var Sugarman = function () {
 		
 		// event listener for hashchange
 		$(window).hashchange(function () {
-			if (window.location.hash.substring(1) !== '') {
-				var project = window.location.hash.substring(1);
-				root.show(project);
-			} else {
-				$('#content').slideUp(600, function () {
-					setTimeout(function(){
-						$('#intro').slideDown();
-						root.scrollToTop(400);
-					}, 200);
-				});
-			}
+			var hash = window.location.hash.substring(1);
+			var project = (hash !== '') ? hash : 'intro';
+			root.show(project);
 		});
 		
 		// event listener for clicking a project link
@@ -47,7 +33,10 @@ var Sugarman = function () {
 			if (window.location.hash === '#'+project) root.scrollToTop();
 			else window.location.hash = project;
 		});
-	}
+
+		// if example.com/#projectName then show the project
+		$(window).hashchange();
+	};
 	
 	root.load = function (project, callbackFunc) {
 		if (root.projects[project] === undefined) {
@@ -56,36 +45,47 @@ var Sugarman = function () {
 				if (callbackFunc) callbackFunc(project);
 			});
 		}
-	}
+	};
 	
 	root.show = function (project) {
-		// if the project text has not loaded
-		if (root.projects[project] === undefined) {
-			// run load() with show() as callback
-			root.load(project, root.show);
-			return;
-		} else {
-			var text = root.projects[project];
-		}
-		
-		// show the project
-		if ($('#intro').is(':visible')) slideUp('#intro', 400);
-		else slideUp('#content', 600);
-		function slideUp (el, speed) {
-			root.scrollToTop(speed);
-			$(el).slideUp(speed, function(){
+		if (project === 'intro') {
+			$('#content').slideUp(600, function () {
 				setTimeout(function(){
-					$('#content .container').html(text);
-					$('#content').slideDown(800);
+					$('#intro').slideDown();
+					root.scrollToTop(400);
 				}, 200);
 			});
-		}				
-	}
+		} else {
+			// if the project text has not loaded
+			if (root.projects[project] === undefined) {
+				// run load() with show() as callback
+				root.load(project, root.show);
+				return;
+			} else {
+				var text = root.projects[project];
+			}
+			
+			// show the project
+			if ($('#intro').is(':visible')) slide('#intro', 400);
+			else slide('#content', 600);
+			
+			// helper function
+			function slide (el, speed) {
+				root.scrollToTop(speed);
+				$(el).slideUp(speed, function(){
+					setTimeout(function(){
+						$('#content .container').html(text);
+						$('#content').slideDown(800);
+					}, 200);
+				});
+			}
+		}
+	};
 	
 	root.scrollToTop = function (speed) {
 		speed = (speed) ? speed : 200;
 		$('html, body').animate({scrollTop:0}, speed);
-	}
+	};
 
 };
 
