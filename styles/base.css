@@ -6,12 +6,8 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #333;
-	font-family: Open Sans, Helvetica, sans-serif;
+	font-family: 'Open Sans', Helvetica, sans-serif;
 	background: #EEDD82 url('../assets/yellow_texture.jpg');
-}
-
-h1 {
-	font-family: 'Open Sans';
 }
 
 h2, h3 {
