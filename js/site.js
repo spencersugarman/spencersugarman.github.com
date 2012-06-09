@@ -53,7 +53,7 @@ var Sugarman = function () {
 		if (root.projects[project] === undefined) {
 			$.get('texts/'+project+'.html', function (response) {
 				root.projects[project] = response;
-				if (callbackFunc) callbackFunc();
+				if (callbackFunc) callbackFunc(project);
 			});
 		}
 	}
