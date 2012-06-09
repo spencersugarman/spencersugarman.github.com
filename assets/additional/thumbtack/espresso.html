@@ -1,0 +1,233 @@
+<html>
+<head>
+<style type="text/css">
+body {
+	position: relative;
+	margin: 0;
+	width: 600px;
+	margin: 0 auto;
+	top: 20%;
+	}
+.reel {
+	float: left;
+	height: 200px;
+	overflow: hidden;
+	margin: 0 0 30px 0;
+	}
+.reel .choices {
+	position: relative;
+	top: 0px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	height: 9999px;
+	}
+.reel .choices li,
+.reel .choices li img {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	}
+.reel .choices li span:after {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	content: attr(data-id);
+	width: 100%;
+	padding: 5px;
+	font-size: 18px;
+	color: #333;
+	background: rgba(200,200,200,0.5);
+	}
+button#spin {
+	display: block;
+	clear: left;
+	height: 50px;
+	width: 100px;
+	margin: 0 auto;
+	font-size: 18px;
+	}
+div#winner {
+	margin: 30px 0 0 0;
+	font-size: 30px;
+	font-family: sans-serif;
+	text-align: center;
+	}
+a#cheat {
+	display: block;
+	margin: 10px 0 0 0;
+	text-align: center;
+	font-size: 11px;
+	text-decoration: none;
+	}
+</style>
+</head>
+<body>
+
+<div id="slotMachine">
+	<div class="reel">
+		<ul class="choices">
+			<li id="coffeemaker">
+				<span data-id="Coffee maker">
+					<img src="coffeemaker.bmp" alt="Coffee maker">
+				</span>
+			</li>
+			<li id="teapot">
+				<span data-id="Teapot">
+					<img src="teapot.jpg" alt="Teapot">
+				</span>
+			</li>
+			<li id="espressomachine">
+				<span data-id="Espresso machine">
+					<img src="espressomachine.jpg" alt="Espresso machine">
+				</span>
+			</li>
+		</ul>
+	</div>
+	<div class="reel">
+		<ul class="choices">
+			<li id="coffeefilter">
+				<span data-id="Coffee filters">
+					<img src="coffeefilters.jpg" alt="Coffee filters">
+				</span>
+			</li>
+			<li id="teastrainer">
+				<span data-id="Tea strainer">
+					<img src="teastrainer.jpg" alt="Tea strainer">
+				</span>
+			</li>
+			<li id="espressotamper">
+				<span data-id="Espresso tamper">
+					<img src="espressotamper.jpg" alt="Espresso tamper">
+				</span>
+			</li>
+		</ul>
+	</div>
+	<div class="reel">
+		<ul class="choices">
+			<li id="coffeeground">
+				<span data-id="Coffee grounds">
+					<img src="coffeegrounds.gif" alt="Coffee grounds">
+				</span>
+			</li>
+			<li id="loosetea">
+				<span data-id="Loose tea">
+					<img src="loosetea.jpg" alt="Loose tea">
+				</span>
+			</li>
+			<li id="espressobean">
+				<span data-id="Espresso beans">
+					<img src="espressobeans.jpg" alt="Espresso beans">
+				</span>
+			</li>
+		</ul>
+	</div>
+
+	<button id="spin">Spin!</button>
+	<a id="cheat" href="#">or cheat</a>
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+var SlotMachine = function (el) {
+	this.machine = el;
+	this.reels = [];
+	this.winnings = '';
+	this.winningCombinations = {
+		'coffeemaker|coffeefilter|coffeeground|': 'coffee',
+		'teapot|teastrainer|loosetea|': 'tea',
+		'espressomachine|espressotamper|espressobean|': 'espresso'
+	};
+	
+	var _this = this;
+	var els = el.find('.reel .choices');
+	
+	els.each(function(n) {
+		_this.reels[n] = new Reel($(this), n);
+	});
+	
+	$(document).on('click', '#spin', function () {
+		_this.reset();
+		_this.start();
+	});
+	
+	$(document).on('click', '#cheat', function (event) {
+		event.preventDefault();
+		_this.rig_the_game();
+	});
+	
+	$(document).on('reel:donespinning', function (evt, n, choice) {
+		_this.winnings += choice + '|';
+		if (_this.winningCombinations[_this.winnings]) 
+			$(document).trigger('new:winner', [_this.winningCombinations[_this.winnings]]);
+		if (n === _this.reels.length-1) $('#spin').attr('disabled', false), $('#cheat').fadeIn();
+	});
+	
+	$(document).on('new:winner', function (evt, winnings) {
+		_this.machine.append('<div id="winner">You won a bajillion cups of ' + winnings + '!</div>');
+		(function blink(){
+			$('#winner').delay(100).fadeTo(100,0.2).delay(100).fadeTo(100,1, blink);
+		})(); // this is what happens when browsers don't support <blink>
+	});
+};
+
+SlotMachine.prototype.start = function () {
+	$('#spin').attr('disabled', true);
+	$('#cheat').hide();
+	for (var i = 0; i < this.reels.length; i++) {
+		this.reels[i].scroll();
+	}	
+};
+
+SlotMachine.prototype.reset = function () {
+	$('#winner').remove();
+	this.winnings = '';
+	for (var i = 0; i < this.reels.length; i++) {
+		this.reels[i].reset();
+	}	
+};
+
+SlotMachine.prototype.rig_the_game = function () {
+	this.reset();
+	for (var i = 0; i < this.reels.length; i++) {
+		var reel = this.reels[i];
+		if (i === 0) reel.maxSpins = 10;
+		else if (i === 1) reel.maxSpins = 13;
+		else reel.maxSpins = 16;
+		reel.el.find('#espressomachine').appendTo(reel.el);
+		reel.el.find('#espressotamper').appendTo(reel.el);
+		reel.el.find('#espressobean').appendTo(reel.el);
+		reel.counter = 0;
+	}
+	this.start();
+};
+
+var Reel = function (el, n) {
+    this.el = el;
+	this.slotNumber = n;
+	this.speed = 100;
+	this.topOffset = (this.el.find('li:first').height()*-1) + 'px';
+	this.reset();
+}
+
+Reel.prototype.scroll = function () {
+    var _this = this;
+    _this.el.animate({
+        top: _this.topOffset
+    }, _this.speed, 'linear', function () {
+        _this.el.css('top', '0px').find('li:first').appendTo(_this.el);
+        if (_this.counter++ < _this.maxSpins) _this.scroll();
+		else $(document).trigger('reel:donespinning', [_this.slotNumber, _this.el.find('li:first').attr('id')]);
+    });
+};
+
+Reel.prototype.reset = function () {
+	this.maxSpins = ((Math.random() * 1000) + (this.slotNumber * 1000))/this.speed;
+	this.counter = 0;
+};
+
+var machine = new SlotMachine($('#slotMachine'));
+
+</script>

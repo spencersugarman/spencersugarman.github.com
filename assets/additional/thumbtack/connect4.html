@@ -1,0 +1,68 @@
+<script type="text/javascript">
+
+/*
+ * Earning Thumbtack swag in JS
+ * http://www.thumbtack.com/engineering/how-we-got-people-to-earn-our-schwag/
+ */
+
+ // The board
+ // hard-coded here, but could be easily loaded in via AJAX
+var thumbtackBoard = [
+  [".", ".", ".", ".", ".", ".", "."],
+  [".", ".", ".", ".", ".", ".", "."],
+  [".", ".", "O", ".", ".", ".", "."],
+  [".", ".", "X", "O", "X", "X", "."],
+  [".", ".", "X", "X", "O", "O", "X"],
+  [".", ".", "O", "X", "X", "O", "X"]
+];
+
+var Connect4 = function (board, pieces, length) {
+	this.board = board;
+	this.pieces = pieces || ['O', 'X'];
+	this.connectLength = length || 4;
+	this.currentRow = 0;
+	this.currentColumn = 0;
+}
+
+Connect4.prototype.search_rows = function (piece, direction) {
+	var down = 1;
+	if (direction === 'diagonal-left') step = -1;
+	else if (direction === 'diagonal-right') step = 1;
+	else if (direction === 'straight-down') step = 0;
+	else if (direction === 'straight-right') step = 1, down = 0;
+	for (var i = 1; i < this.connectLength; i++) {
+		try {
+			if (this.board[this.currentRow+(down*i)][this.currentColumn+(step*i)] === piece) {
+				if (i === (this.connectLength-1)) return true;
+				else continue;
+			} 
+			else break;
+		} catch (err) {
+			break;
+		}
+	}
+	return false;
+}
+
+Connect4.prototype.find_winner = function () {
+	for (this.currentRow = 0; this.currentRow < this.board.length; this.currentRow++) {
+		for (this.currentColumn = 0; this.currentColumn < this.board[this.currentRow].length; this.currentColumn++) {
+			var pieceIndex = this.pieces.indexOf(this.board[this.currentRow][this.currentColumn]);
+			if (pieceIndex !== -1) {
+				var piece = this.pieces[pieceIndex];
+				if (this.currentRow < this.board.length - (this.connectLength-1)) {
+					if (this.search_rows(piece, 'diagonal-left')) return piece;
+					if (this.search_rows(piece, 'diagonal-right')) return piece;
+					if (this.search_rows(piece, 'straight-down')) return piece;
+				}
+				if (this.search_rows(piece, 'straight-right')) return piece;
+			}
+		}
+	}
+}
+
+var winner = (new Connect4(thumbtackBoard)).find_winner();
+if (winner) alert('Winner is ' + winner);
+else alert('No winner');
+
+</script>
