@@ -14,15 +14,20 @@
 		<link href="styles/base.css" rel="stylesheet">
 		<link href="styles/queries.css" rel="stylesheet">
 		<script type="text/javascript">
-			  var _gaq = _gaq || [];
-			  _gaq.push(['_setAccount', 'UA-805445-7']);
-			  _gaq.push(['_trackPageview']);
-
-			  (function() {
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-805445-7']);
+			_gaq.push(['_trackPageview']);
+			
+			(function() {
 				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			  })();
+			})();
+
+			window.onerror = function(m, f, l){
+				var err = [f, l, m].join(' : ');
+				_gaq.push(['_trackEvent', 'Errors', 'App', err, null, true]);
+			}
 		</script>
 	</head>
 	<body>
@@ -44,8 +49,8 @@
 	</div>
 </div>
 	
-<div id="intro" class="bold">
-	<div class="container">
+<div id="intro">
+	<div class="container bold">
 		<h1 id="name">Hey! I'm Spencer,</h1>
 		<h2 id="bio">a user experience designer calling Pittsburgh, Pennsylvania home. My biggest passion is user research, and I have four years of lab experience under my belt to back it up. These days I spend my hours working as a research programmer in the <a href="http://talkbank.org/">Department of Psychology</a> at Carnegie Mellon University after recently completing my <a href="http://www.hcii.cmu.edu/">master's in human-computer interaction</a>.</h2>
 	</div>
