@@ -70,8 +70,11 @@ img {
  * TOP BAR
  ********************************/
 
+.top-o-the-page {
+	background:#c0392b url('/assets/imgs/asteroids_transparent.png');
+}
+
 #header {
-	background: #c0392b;
 	color: #EDEDED;
 	padding: 20px 0 15px 0;
 	min-height: 70px;
@@ -84,8 +87,12 @@ img {
 #header h1 {
 	display: inline;
 	margin: 10px 0 0 0;
-	font-size: 22px;
+	font-size: 1em;
 	line-height: 0px;
+	text-transform: uppercase;
+}
+#header h1 a {
+	font-weight: normal;
 }
 
 #header ul {
@@ -140,7 +147,6 @@ img {
 
 #intro {
 	padding: 40px 0 0 0;
-	background: #c0392b;
 }
 
 #intro h1 {
