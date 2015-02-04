@@ -23,7 +23,7 @@ h2 {
 }
 
 a { 
-	color: #8e44ad; 
+	color: #3498db; 
 	font-weight: 700; 
 	text-decoration: none; 
 	-webkit-transition: color 0.4s;
@@ -33,7 +33,7 @@ a {
 }
 
 a:hover { 
-	color: #5C3317; 
+	color: #2980b9; 
 }
 
 img {
@@ -71,7 +71,7 @@ img {
  ********************************/
 
 #header {
-	background: #8e44ad;
+	background: #c0392b;
 	color: #EDEDED;
 	padding: 20px 0 15px 0;
 	min-height: 70px;
@@ -105,19 +105,16 @@ img {
 	padding-bottom: 6px;
 }
 
-#header a.active {
-	border-bottom: 4px #FFF solid; 
-}
-
+#header a.active,
 #header a:hover {
-	border-bottom: 4px #9b59b6 solid; 
+	border-bottom: 4px #FFF solid; 
 }
 
 #logo {
 	position: relative;
 	margin: 0 auto -90px auto;
 	width: 100px;
-	background: #ecf0f1;
+	background: #fff;
 	z-index: 10;
 }
 
@@ -127,7 +124,7 @@ img {
 }
 
 .ribbon-bottom {
-	border-color: #ecf0f1 transparent transparent transparent;
+	border-color: #fff transparent transparent transparent;
 	border-style: solid;
 	border-width: 50px;
 	height: 0;
@@ -143,17 +140,28 @@ img {
 
 #intro {
 	padding: 40px 0 0 0;
+	background: #c0392b;
 }
 
 #intro h1 {
 	font-size: 50px;
 	margin: 40px 0 0 0;
-	color: #000;
+	color: #fff;
 }
 
 #intro h2 {
 	font-family: 'Open Sans';
 	margin: 10px 0 60px 0;
+	font-weight: normal;
+	color: #fff;
+}
+
+#intro a {
+	color: #f1c40f;
+}
+
+#intro a:hover {
+	color: #f39c12;
 }
 
 /********************************
@@ -162,6 +170,7 @@ img {
 
 #content { 
 	display: none; 
+	background: #ecf0f1;
 }
 
 #content .container {
@@ -197,7 +206,7 @@ img {
 #content h3 {
 	margin: 0 0 3px 0;
 	text-transform: uppercase;
-	color: #008080;
+	color: #8e44ad;
 	font-size: 14px;
 }
 
@@ -250,7 +259,7 @@ img {
 	position: absolute;
 	bottom: 0;
 	background: #FFF;
-	color: #e67e22;
+	color: #e74c3c;
 	padding: 10px 10px 10px 0;
 }
 
@@ -271,8 +280,8 @@ ul.additional {
 	padding: 20px 0; 
 }
 
-.projects#portfolio {
-	background: #2c3e50; 
+.projects#wip {
+	background: #515151;
 }
 
 .projects h3 { 
@@ -288,9 +297,9 @@ ul.additional {
 	border-bottom: 2px #FFF solid;
 }
 
-.projects#wip h3.category {
-	color: #2c3e50;
-	border-bottom-color: #2c3e50;
+.projects#portfolio h3.category {
+	color: #333;
+	border-bottom-color: #333;
 }
 
 .pieces:after {
@@ -358,7 +367,7 @@ ul.additional {
  ********************************/
 
 #footer { 
-	background: #ecf0f1; 
+	background: #333; 
 	text-align: center; 
-	color: #2c3e50; 
+	color: #fff; 
 }

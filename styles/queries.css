@@ -104,7 +104,7 @@
 	}
 	
 	#topbar {
-		background: #8e44ad;
+		background: #c0392b;
 	}
 
 	#header .container {
@@ -121,12 +121,12 @@
 	}
 	
 	#logo img {
-		background: #ecf0f1;
+		background: #fff;
 		padding-bottom: 15px;
 	}
 
 	.ribbon-bottom {
-		border-color: #ecf0f1 transparent transparent transparent;
+		border-color: #fff transparent transparent transparent;
 		border-style: solid;
 		border-width: 50px;
 		height: 0;
