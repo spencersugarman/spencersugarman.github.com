@@ -30,8 +30,10 @@ var Sugarman = function () {
 		// event listener for clicking a project link
 		$('#portfolio, #wip').on('click', '.piece', function () {
 			var project = $(this).attr('data-id');
-			if (window.location.hash === '#'+project) root.scrollToTop();
-			else window.location.hash = project;
+			if (project) {
+				if (window.location.hash === '#'+project) root.scrollToTop();
+				else window.location.hash = project;
+			}
 		});
 
 		// if example.com/#projectName then show the project
