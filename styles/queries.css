@@ -224,4 +224,7 @@
 		bottom: auto;
 		top: 15px;
 	}
+	#footer .container {
+		font-size: 14px;
+	}
 }
