@@ -5,7 +5,7 @@ var Sugarman = function () {
 
 	root.init = function () {
 		// load projects into root.projects
-		$('#projects .piece').each(function(){
+		$('#portfolio .piece, #wip .piece').each(function(){
 			var project = $(this).attr('data-id');
 			root.load(project);
 		});
@@ -28,7 +28,7 @@ var Sugarman = function () {
 		});
 		
 		// event listener for clicking a project link
-		$('#projects').on('click', '.piece', function () {
+		$('#portfolio, #wip').on('click', '.piece', function () {
 			var project = $(this).attr('data-id');
 			if (window.location.hash === '#'+project) root.scrollToTop();
 			else window.location.hash = project;

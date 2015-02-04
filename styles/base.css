@@ -11,7 +11,7 @@ body {
 	padding: 0;
 	color: #333;
 	font-family: 'Open Sans', Helvetica, sans-serif;
-	background: #EEDD82 url('../assets/yellow_texture.jpg');
+	background: #FFF;
 }
 
 h2, h3 {
@@ -23,7 +23,7 @@ h2 {
 }
 
 a { 
-	color: #CD853F; 
+	color: #8e44ad; 
 	font-weight: 700; 
 	text-decoration: none; 
 	-webkit-transition: color 0.4s;
@@ -71,10 +71,9 @@ img {
  ********************************/
 
 #header {
-	background: #333 url('../assets/black_texture.png');
+	background: #8e44ad;
 	color: #EDEDED;
 	padding: 20px 0 15px 0;
-	box-shadow: 0px 3px 12px #333;
 	min-height: 70px;
 }
 
@@ -101,25 +100,24 @@ img {
 }
 
 #header a {
-	color: #AAA;
+	color: #FFF;
 	text-decoration: none;
-}
-
-#header a.active {
-	color: #EDEDED;
-	border-bottom: 4px #EDEDED solid; 
 	padding-bottom: 6px;
 }
 
+#header a.active {
+	border-bottom: 4px #FFF solid; 
+}
+
 #header a:hover {
-	color: #FFF;
+	border-bottom: 4px #9b59b6 solid; 
 }
 
 #logo {
 	position: relative;
 	margin: 0 auto -90px auto;
 	width: 100px;
-	background: #FFF;
+	background: #ecf0f1;
 	z-index: 10;
 }
 
@@ -129,7 +127,7 @@ img {
 }
 
 .ribbon-bottom {
-	border-color: #FFF transparent transparent transparent;
+	border-color: #ecf0f1 transparent transparent transparent;
 	border-style: solid;
 	border-width: 50px;
 	height: 0;
@@ -151,7 +149,6 @@ img {
 	font-size: 50px;
 	margin: 40px 0 0 0;
 	color: #000;
-	text-shadow: #CD853F 0 2px;
 }
 
 #intro h2 {
@@ -168,7 +165,7 @@ img {
 }
 
 #content .container {
-	margin: 100px auto 40px auto;
+	margin: 80px auto 40px auto;
 	background: #FFF;
 	padding: 1px 20px;
 }
@@ -253,7 +250,7 @@ img {
 	position: absolute;
 	bottom: 0;
 	background: #FFF;
-	color: #800000;
+	color: #e67e22;
 	padding: 10px 10px 10px 0;
 }
 
@@ -269,24 +266,31 @@ ul.additional {
  * PROJECT THUMBNAILS
  ********************************/
 
-#projects { 
-	background: #333 url('../assets/black_texture.png'); 
+.projects { 
 	height: 100%; 
 	padding: 20px 0; 
-	box-shadow: 0px 0px 12px #333;
-}			
+}
 
-#projects h3 { 
+.projects#portfolio {
+	background: #2c3e50; 
+}
+
+.projects h3 { 
 	font-family: 'Open Sans'; 
 }
 
-#projects h3.category {
+.projects h3.category {
 	text-transform: uppercase;
 	color: #FFF;
 	font-size: 16px;
 	margin-bottom: 30px;
 	padding-bottom: 5px;
 	border-bottom: 2px #FFF solid;
+}
+
+.projects#wip h3.category {
+	color: #2c3e50;
+	border-bottom-color: #2c3e50;
 }
 
 .pieces:after {
@@ -301,8 +305,8 @@ ul.additional {
 .piece {
 	float: left;
 	position: relative;
-	width: 300px;
-	height: 170px;
+	width: 47%;
+	height: 250px;
 	overflow: hidden;
 	opacity: 1;
 	-webkit-transition: opacity 0.2s ease-in;
@@ -310,7 +314,7 @@ ul.additional {
 	     -o-transition: opacity 0.2s ease-in;
 	        transition: opacity 0.2s ease-in;
 	cursor: pointer;
-	margin-bottom: 20px;
+	margin: 0 10px 20px 10px;
 }
 
 .piece:hover {
@@ -318,8 +322,9 @@ ul.additional {
 }
 
 .piece:nth-child(even) {
-	margin: 0 30px;
-}			
+	margin-right: 0;
+}
+			
 
 .piece h3 {
 	position: absolute;
@@ -343,8 +348,7 @@ ul.additional {
 }
 
 .thumbnail {
-	width: 300px;
-	max-height: 170px;
+	width: 100%;
 	background: #999;
 }
 
@@ -354,7 +358,7 @@ ul.additional {
  ********************************/
 
 #footer { 
-	background: #666; 
+	background: #ecf0f1; 
 	text-align: center; 
-	color: #FFF; 
+	color: #2c3e50; 
 }
