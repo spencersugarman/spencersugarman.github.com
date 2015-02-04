@@ -201,11 +201,24 @@
 		font-size: 14px;
 		margin-top: 20px;
 	}
+	#header ul li {
+		margin-left: 15px;
+	}
 	#header a.active {
 		padding-bottom: 4px;
 	}
 	#intro h1 {
 		margin-top: 20px;
+		font-size: 2em;
+	}
+	#intro #bio {
+		font-size: 1em;
+		font-weight: normal;
+	}
+	.piece:nth-child(even),
+	.piece:nth-child(odd) {
+		height: auto;
+		margin: 0 0 20px 0;
 	}
 	.piece h3 {
 		bottom: auto;
