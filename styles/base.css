@@ -2,6 +2,10 @@
  * GLOBAL STYLES
  ********************************/
 
+* {
+	box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -33,7 +37,7 @@ a:hover {
 }
 
 img {
-	max-width: 960px;
+	width: 100%;
 }
 
 /********************************
@@ -71,7 +75,11 @@ img {
 	color: #EDEDED;
 	padding: 20px 0 15px 0;
 	box-shadow: 0px 3px 12px #333;
-	min-height: 40px;
+	min-height: 70px;
+}
+
+#header .container {
+	padding: 5px 0 0 0;
 }
 
 #header h1 {
@@ -109,15 +117,15 @@ img {
 
 #logo {
 	position: relative;
-	margin: 0 auto -95px auto;
+	margin: 0 auto -90px auto;
 	width: 100px;
 	background: #FFF;
 	z-index: 10;
 }
 
 #logo img {
-	height: 50px;
 	padding: 25px 31px 10px 31px;
+	width: auto;
 }
 
 .ribbon-bottom {
@@ -197,26 +205,31 @@ img {
 }
 
 .block-list.col4 li {
-	width: 225px;
+	width: 25%;
 }
 
 .block-list.col3 li {
-	width: 300px;
+	width: 33.33333%;
 }
 
 .block-list img {
 	width: inherit;
 }
 
-.block-list.col4 li:nth-child(odd),
-.block-list li:nth-child(2) {
-	margin: 0 15px 0 0;
+.block-list.col4 li:nth-child(odd) {
+	padding: 0 15px 0 0;
 }
 
-.block-list.col3 li:nth-child(odd),
-.block-list li:nth-child(2) {
-	margin: 0 20px 0 0;
-}			
+.block-list.col3 li:first-child {
+	padding-right: 15px;
+}
+.block-list.col3 li:nth-child(even) {
+	padding: 0 7px;
+}
+.block-list.col3 li:last-child {
+	padding-left: 15px;
+}
+
 
 .block-list:before,
 .block-list:after {
@@ -291,7 +304,7 @@ ul.additional {
 	width: 300px;
 	height: 170px;
 	overflow: hidden;
-	opacity: 0.6;
+	opacity: 1;
 	-webkit-transition: opacity 0.2s ease-in;
 	   -moz-transition: opacity 0.2s ease-in;
 	     -o-transition: opacity 0.2s ease-in;
@@ -301,7 +314,7 @@ ul.additional {
 }
 
 .piece:hover {
-	opacity: 1;
+	opacity: 0.6;
 }
 
 .piece:nth-child(even) {

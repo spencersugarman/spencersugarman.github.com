@@ -1,9 +1,11 @@
-@media only screen and (max-width: 1005px) {
-	
-	img {
-		max-width: 640px;
+@media only screen and (min-width: 1200px) {
+	.container {
+		width: 1140px;
 	}
-		
+}
+
+@media only screen and (max-width: 1005px) {
+			
 	.container {
 		width: 640px;
 	}
@@ -35,6 +37,22 @@
 	
 	.block-list li:nth-child(3) {
 		clear: left;
+	}
+
+	.block-list.col3 li:nth-child(1),
+	.block-list.col3 li:nth-child(2),
+	.block-list.col3 li:nth-child(3) {
+		width: 100%;
+		padding: 0 0 20px 0;
+	}
+
+	.block-list.col4 li {
+		width: 50%;
+		padding-bottom: 20px !important;
+	}
+
+	.art {
+		width: 100%;
 	}
 
 	.videos {
@@ -80,18 +98,15 @@
 }
 
 @media only screen and (max-width: 685px) {
+
 	#topbar, #intro, #content, #projects, #footer {
 		width: 100%;
-		min-width: 480px;
+		/*min-width: 480px;*/
 	}
 	
-	img {
-		max-width: 440px;
-	}
-
 	.container {
-		display: box;
-		width: 440px;
+		display: block;
+		width: 100%;
 		padding: 20px;
 	}
 	
@@ -100,12 +115,18 @@
 		background: #333 url('../assets/black_texture.png');
 	}
 
+	#header .container {
+		padding: 20px;
+	}
+
 	#logo {
 		display: block;
 		width: 440px;
 		padding: 0 20px;
 		z-index: 1;
 		background: none;
+		margin-right: 0;
+		margin-left: 0;
 	}
 	
 	#logo img {
@@ -154,9 +175,9 @@
 		font-size: 20px;
 		margin-bottom: 20px;
 	}
-	
-	.art {
-		width: 210px;
+
+	.block-list.col4 li {
+		width: 100%;
 	}
 
 	.piece:nth-child(even),
@@ -174,5 +195,29 @@
 	#footer .container {
 		margin-top: 0;
 		font-size: 22px;
+	}
+}
+
+@media only screen and (max-width: 490px) {
+	#logo img {
+		padding: 15px 22px 3px 21px;
+	}
+	.ribbon-bottom {
+		bottom: -75px;
+		left: 20px;
+		border-width: 40px;
+	}
+	#header .container {
+		padding: 0;
+	}
+	#header .navigation {
+		font-size: 14px;
+		margin-top: 20px;
+	}
+	#header a.active {
+		padding-bottom: 4px;
+	}
+	#intro h1 {
+		margin-top: 20px;
 	}
 }
