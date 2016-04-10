@@ -1,0 +1,439 @@
+<!doctype html>
+<html>
+<head>
+	<style type="text/css">
+		#loader {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -60px -60px;
+			color: #666;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 0.85em;
+			font-weight: bold;
+		}
+		#c_shape {
+		  -webkit-animation: loader 1.5s linear infinite;
+		          animation: loader 1.5s linear infinite;
+		  -webkit-transform-origin: 62.1px 60.3px;
+		      -ms-transform-origin: 62.1px 60.3px;
+		          transform-origin: 62.1px 60.3px;
+		  -webkit-animation-play-state: running!important;
+		          animation-play-state: running!important;
+		}
+		@-webkit-keyframes loader {
+		  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg)}
+		}
+		@keyframes loader {
+		  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg)}
+		}
+
+		#loader rect {
+		  -webkit-animation: none 1.5s linear infinite;
+		          animation: none 1.5s linear infinite;
+		  display: inline-block;
+		  -webkit-animation-play-state: running!important;
+		          animation-play-state: running!important;
+		}
+		#loader rect:nth-child(1) {
+		  -webkit-animation-name: loader1;
+		          animation-name: loader1;
+		}
+		#loader rect:nth-child(2) {
+		  -webkit-animation-name: loader2;
+		          animation-name: loader2;
+		}
+		#loader rect:nth-child(3) {
+		  -webkit-animation-name: loader3;
+		          animation-name: loader3;
+		}
+		#loader rect:nth-child(4) {
+		  -webkit-animation-name: loader4;
+		          animation-name: loader4;
+		}
+		#loader rect:nth-child(5) {
+		  -webkit-animation-name: loader5;
+		          animation-name: loader5;
+		}
+
+
+		@-webkit-keyframes loader1 {
+		  0% { fill: #3E2C53;}
+		  33.3333% { fill: #AC2B61;}
+		  66.6666% { fill: #F3E3B4;}
+		}
+
+
+		@keyframes loader1 {
+		  0% { fill: #3E2C53;}
+		  33.3333% { fill: #AC2B61;}
+		  66.6666% { fill: #F3E3B4;}
+		}
+		@-webkit-keyframes loader2 {
+		  0% { fill: #3F577A;}
+		  33.3333% { fill: #E33D5F;}
+		  66.6666% { fill: #BADCC8;}
+		}
+		@keyframes loader2 {
+		  0% { fill: #3F577A;}
+		  33.3333% { fill: #E33D5F;}
+		  66.6666% { fill: #BADCC8;}
+		}
+		@-webkit-keyframes loader3 {
+		  0% { fill: #4C8FA2;}
+		  33.3333% { fill: #EF7C5E;}
+		  66.6666% { fill: #7FC7BF;}
+		}
+		@keyframes loader3 {
+		  0% { fill: #4C8FA2;}
+		  33.3333% { fill: #EF7C5E;}
+		  66.6666% { fill: #7FC7BF;}
+		}
+		@-webkit-keyframes loader4 {
+		  0% { fill: #7BB594;}
+		  33.3333% { fill: #F9C65F;}
+		  66.6666% { fill: #EE7B73;}
+		}
+		@keyframes loader4 {
+		  0% { fill: #7BB594;}
+		  33.3333% { fill: #F9C65F;}
+		  66.6666% { fill: #EE7B73;}
+		}
+		@-webkit-keyframes loader5 {
+		  0% { fill: #DBD17F;}
+		  33.3333% { fill: #F5EF9E;}
+		  66.6666% { fill: #D4385F;}
+		}
+		@keyframes loader5 {
+		  0% { fill: #DBD17F;}
+		  33.3333% { fill: #F5EF9E;}
+		  66.6666% { fill: #D4385F;}
+		}
+
+		html, body {
+			height: 100%;
+			font-family: 'Varela Round', sans-serif;
+			-webkit-font-smoothing: antialiased;
+		  margin: 0;
+		}
+
+		a {
+		  font-weight: 600;
+		  text-decoration: none;
+		  font-size: 13px;
+		  color: #A7AAAE;
+		  position: absolute;
+		  left: 50%;
+		  bottom: 40px;
+		  border: 1px solid #A7AAAE;
+		  padding: 10px 20px;
+		  border-radius: 50px;
+		  margin-left: -65px;
+		  transition: all .1s ease-in-out;
+		  text-transform: uppercase;
+		}
+		a:hover {
+			background: #A7AAAE;
+			color: #fff;
+		}
+		body {
+			margin: 0;
+			font-family: sans-serif;
+			background: #ecf0f1;
+		}
+		#concerts {
+			width: 30%;
+			color: #fff;
+			background: #c0392b;
+		}
+		.concert {
+			padding: 20px;
+			opacity: 0.8;
+			cursor: pointer;
+			transition: opacity 0.1s, padding 0.3s;
+		}
+		.concert:nth-child(even) {
+			background: #e74c3c;
+		}
+		.concert:hover {
+			opacity: 1;
+			padding-left: 30px;
+		}
+		.concert#current {
+			background: #fff;
+			color: #e74c3c;
+			opacity: 1;
+		}
+		.concert#current:hover {
+			padding-left: 20px;
+		}
+		.concert#current .details {
+			color: #555;
+		}
+		.name {
+			font-size: 1.1em;
+			margin: 0 20px 7px 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: pre;
+		}
+		.details {
+			color: rgba(255,255,255,0.7);
+			font-weight: 500;
+			font-size: 0.8em;
+		}
+		#playerContainer {
+			position: fixed;
+			left: 30%;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="loader">
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 120 120" xml:space="preserve">
+			<g>
+				<defs>
+					<path id="c_path" d="M87.417,78.237c-0.209-0.245-0.432-0.471-0.666-0.685c-0.47-0.428-0.984-0.787-1.528-1.075
+						c-2.65-1.406-6.001-1.141-8.42,0.926h-0.002l-0.002-0.001c-3.945,3.373-9.066,5.413-14.666,5.413
+						c-12.474,0-22.586-10.111-22.586-22.585s10.112-22.585,22.586-22.585c5.586,0,10.697,2.03,14.64,5.391l0.004-0.003
+						c0.009,0.009,0.018,0.017,0.026,0.024c2.419,2.067,5.77,2.332,8.42,0.926c0.544-0.289,1.057-0.647,1.528-1.075
+						c0.232-0.212,0.457-0.439,0.666-0.685c2.696-3.155,2.329-7.895-0.815-10.599c-0.007-0.004-0.015-0.011-0.02-0.016
+						c-0.009-0.008-0.02-0.015-0.028-0.024c-6.575-5.609-15.101-8.997-24.421-8.997c-20.789,0-37.643,16.854-37.643,37.643
+						c0,20.788,16.854,37.642,37.643,37.642c9.318,0,17.846-3.386,24.419-8.993c0.011-0.011,0.021-0.019,0.032-0.029
+						c0.005-0.005,0.011-0.01,0.018-0.016C89.746,86.131,90.112,81.393,87.417,78.237z"/>
+				</defs>
+				<clipPath id="c_shape">
+					<use xlink:href="#c_path"  overflow="visible"/>
+				</clipPath>
+				<g clip-path="url(#c_shape)">
+					<rect fill="#3E2D54" width="40.289" height="120"/>
+					<rect x="39.289" fill="#40587B" width="16.057" height="120"/>
+					<rect x="54.346" fill="#4D90A3" width="16.057" height="120"/>
+					<rect x="69.403" fill="#7CB694" width="16.057" height="120"/>
+					<rect x="84.46" fill="#DCD280" width="35.54" height="120"/>
+				</g>
+			</g>
+		</svg>
+		<p>Loading concerts...</p>
+	</div>
+	<div id="concerts"></div>
+	<div id="playerContainer">
+		<div id="player"></div>
+	</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script type="text/javascript">
+	var Concertly = function (options) {
+		var concerts = [];
+		var options = options || {};
+		var concertsTemplateId = options.concertsTemplateId || 'concertsTmpl';
+		var concertsViewId = options.concertsViewId || 'concerts';
+		var nextArtistIndex = 0;
+		var videoPlayer = undefined;
+
+		Handlebars.registerHelper('formatDate', function(date) {
+			console.log(date);
+			return (new Intl.DateTimeFormat('en-US', { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(Date.parse(date))));
+		});
+
+		function init () {
+			console.log('getting location')
+			navigator.geolocation.getCurrentPosition(getUpcomingConcerts);
+		}
+
+		function getUpcomingConcerts (location, offset) {
+			console.log('getting upcoming concerts');
+			offset = (offset) ? offset : 1;
+			url = 'http://api.songkick.com/api/3.0/events.json?location=geo:' + location.coords.latitude + ',' + location.coords.longitude + '&page=' + offset + '&apikey=5RLU9VT3jrOyoBO5';
+			console.log(url);
+			// get concerts using Songkick
+			$.getJSON(url, function (data) {
+				console.log(data);
+				getTopSongsForArtists(location, data);
+			});
+			// get concerts using Last.fm
+			// $.getJSON('http://ws.audioscrobbler.com/2.0/?method=geo.getevents&lat=' + location.coords.latitude + '&long=' + location.coords.longitude + '&page=' + offset + '&limit=100&api_key=b5ec5df9e7f98c8b50d0aa3b5559dfa4&format=json', 
+			// 	function (data) {
+			// 		console.log(data);
+			// 		getTopSongsForArtists(location, data);
+			// 	}
+			// );
+		}
+
+		function getTopSongsForArtists (location, data) {
+			console.log('doing stuff with the concert data')
+			// songkick
+			concerts = concerts.concat(data.resultsPage.results.event);
+			var total = parseInt(data.resultsPage.totalEntries);
+			var perPage = parseInt(data.resultsPage.perPage);
+			var page = parseInt(data.resultsPage.page);
+			// last/fm
+			// concerts = concerts.concat(data.events.event);
+			// var total = parseInt(data.events['@attr'].total);
+			// var perPage = parseInt(data.events['@attr'].perPage);
+			// var page = parseInt(data.events['@attr'].page);
+			if (total < page * perPage) {
+				// last page
+				console.log(concerts);
+				concerts.sort(function (a, b) {
+					return Date.parse(a.start.datetime) - Date.parse(b.start.datetime);
+				});
+				showConcerts();
+			} else {
+				// remaining concerts
+				getUpcomingConcerts(location, ++page);
+			}
+		}
+
+		function showConcerts () {
+			console.log('loading the view')
+			var source = $('#'+concertsTemplateId).html();
+			var template = Handlebars.compile(source);
+			var output = template(concerts);
+			document.getElementById(concertsViewId).innerHTML = output;
+			playNextArtist();
+			$('#' + concertsViewId).on('click', '.concert', function () {
+				setCurrent(this.dataset.index);
+				playArtist(this.dataset.artist);
+			});
+		}
+
+		function setCurrent (index) {
+			console.log('setting current concert');
+			var current = document.getElementById('current');
+			if (current) {
+				current.id = undefined;
+			}
+			var concertEls = document.querySelectorAll('.concert');
+			concertEls[index].id = 'current';
+			nextArtistIndex = parseInt(concertEls[index].dataset.index) + 1;
+		}
+
+		function playNextArtist () {
+			var headliner = getHeadlinerFromSongkick(concerts[nextArtistIndex]);
+			console.log('loading next artist - ' + headliner);
+			playArtist(headliner);
+			setCurrent(nextArtistIndex);
+		}
+
+		function getHeadlinerFromSongkick (event) {
+			for(var i=0, l=event.performance.length; i<l; i++) {
+				if (event.performance[i].billing === 'headline') {
+					return event.performance[i].displayName;
+				}
+			}
+		}
+
+		function playArtist (artist) {
+			console.log('playing artist');
+			console.log(gapi.client.youtube);
+			var request = gapi.client.youtube.search.list({
+				q: artist + ' music video'
+				, part: 'snippet'
+				, maxResults: 1
+				, type: 'video'
+				, videoDuration: 'short'
+			});
+			request.execute(function(response) {
+				console.log(response);
+				console.log(videoPlayer);
+				if (videoPlayer) {
+					console.log('got back youtube id - ' + response.items[0].id.videoId)
+					playVideo(response.items[0].id.videoId);
+				} else {
+					showFirstVideo(response.items[0].id.videoId);
+				}
+			});
+		}
+
+		function playVideo (id) {
+    		videoPlayer.loadVideoById(id);
+		}
+
+		function showFirstVideo (id) {
+			var params = { allowScriptAccess: 'always' };
+		    var atts = { id: 'ytplayer' };
+		    swfobject.embedSWF('http://www.youtube.com/v/' + id + '?enablejsapi=1&playerapiid=player1&version=3&autoplay=0',
+		                       'player', '100%', '100%', '9', null, null, params, atts);
+		}
+
+		function onYTPlayerStateChange (state) {
+        	console.log(state);
+		}
+
+		function setPlayer (player) {
+			console.log('setting player');
+			videoPlayer = player;
+		}
+
+		var self = {
+			'init': init,
+			'playNextArtist': playNextArtist,
+			'setPlayer': setPlayer
+		}
+
+		return self;
+	};
+
+	function onYouTubePlayerReady () {
+    	ytplayer = document.getElementById('ytplayer');
+        console.log(ytplayer);
+    	myConcertly.setPlayer(ytplayer);
+        ytplayer.addEventListener('onStateChange', 'onYTPlayerStateChange');
+	}
+
+	function onYTPlayerStateChange (state) {
+		console.log(state);
+		if (state === 0) {
+			myConcertly.playNextArtist();
+		}
+	}
+
+	function initGapi () {
+		console.log('google api loaded');
+		gapi.client.setApiKey('AIzaSyAwtsYmYIUk_03LXCgT4fiLw4K_R-koI6w');
+		gapi.client.load('youtube', 'v3', function () {
+			console.log('youtube api loaded')
+			myConcertly.init();
+		});
+	}
+
+	Handlebars.registerHelper('headliner', function (items) {
+		for(var i=0, l=items.length; i<l; i++) {
+			if (items[i].billing === 'headline') {
+				return items[i].displayName;
+			}
+		}
+	});
+
+	Handlebars.registerHelper('guests', function (items) {
+		var guests = [];
+		for(var i=0, l=items.length; i<l; i++) {
+			if (items[i].billing !== 'headline') {
+				guests.concat(items[i].displayName);
+			}
+		}
+		if (guests.length) {
+			return ('(with ' + guests.join(", ") + ')');			
+		}
+	});
+
+	var myConcertly = new Concertly();
+
+</script>
+<script src="http://apis.google.com/js/client.js?onload=initGapi"></script>
+<script type="text/x-handlebars-template" id="concertsTmpl">
+{{#each this}}
+<div class="concert" data-artist="{{#headliner performance}}{{/headliner}}" data-index="{{@index}}">
+	<div class="name">{{#headliner performance}}{{/headliner}} {{#guests performance}}{{/guests}}</div>
+	<div class="details">{{formatDate start.date}} @ {{venue.displayName}}</div>
+</div>
+{{/each}}
+</script>
+</body>
+</html>
