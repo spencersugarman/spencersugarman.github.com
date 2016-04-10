@@ -249,7 +249,7 @@
 		function getUpcomingConcerts (location, offset) {
 			console.log('getting upcoming concerts');
 			offset = (offset) ? offset : 1;
-			url = 'http://api.songkick.com/api/3.0/events.json?location=geo:' + location.coords.latitude + ',' + location.coords.longitude + '&page=' + offset + '&apikey=5RLU9VT3jrOyoBO5';
+			url = 'http://api.songkick.com/api/3.0/events.json?location=geo:' + location.coords.latitude + ',' + location.coords.longitude + '&page=' + offset + '&apikey=5RLU9VT3jrOyoBO5&jsoncallback=?';
 			console.log(url);
 			// get concerts using Songkick
 			$.getJSON(url, function (data) {
