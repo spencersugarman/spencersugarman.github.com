@@ -216,7 +216,6 @@ img {
 
 .block-list li {
 	float: left;
-	font-size: 12px;
 }
 
 #content h3 {
@@ -234,15 +233,16 @@ img {
 	width: 33.33333%;
 }
 
-.block-list img {
-	width: inherit;
+.block-list.col2 li {
+	width: 50%;
 }
 
 .block-list.col4 li:nth-child(odd) {
 	padding: 0 15px 0 0;
 }
 
-.block-list.col3 li:first-child {
+.block-list.col3 li:first-child,
+.block-list.col2 li:first-child {
 	padding-right: 15px;
 }
 .block-list.col3 li:nth-child(even) {
@@ -251,7 +251,6 @@ img {
 .block-list.col3 li:last-child {
 	padding-left: 15px;
 }
-
 
 .block-list:before,
 .block-list:after {
@@ -280,7 +279,7 @@ img {
 }
 
 .quick_facts ul {
-	margin: 20px auto;
+	margin: 40px auto;
 }
 
 ul.additional {

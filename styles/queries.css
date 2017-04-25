@@ -167,7 +167,8 @@
 		margin-bottom: 20px;
 	}
 
-	.block-list.col4 li {
+	.block-list.col4 li,
+	.block-list.col2 li {
 		width: 100%;
 	}
 
