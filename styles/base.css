@@ -71,7 +71,17 @@ img {
  ********************************/
 
 .top-o-the-page {
-	background:#c0392b url('/assets/imgs/asteroids_transparent.png');
+	animation: heroAnimation 30s infinite linear;
+	background: #c0392b url('/assets/imgs/asteroids_transparent.png');
+}
+
+@keyframes heroAnimation {
+	from {
+		background-position-y: 0;
+	}
+	to {
+		background-position-y: -552px;
+	}
 }
 
 #header {

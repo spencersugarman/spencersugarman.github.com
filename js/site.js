@@ -7,7 +7,9 @@ var Sugarman = function () {
 		// load projects into root.projects
 		$('#portfolio .piece, #wip .piece').each(function(){
 			var project = $(this).attr('data-id');
-			root.load(project);
+			if (project) {
+				root.load(project);
+			}
 		});
 	
 		// event listener for animating the logo
